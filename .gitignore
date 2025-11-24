@@ -1,0 +1,15 @@
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore editor files and folders
+.vscode/
+*.swp
+*~
+
+# Ignore any log files or temporary files
+*.log
+*.tmp
+*.temp
+
+psb

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huzurlu Bahçe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="background-animations"></div>
+
+    <!-- ANA MENÜ EKRANI -->
+    <div id="main-menu-screen" class="screen active">
+        <img src="img/garden_mascot.png" alt="Huzurlu Bahçe" class="mascot">
+        <h1>Huzurlu Bahçe</h1>
+        <div class="menu-container">
+            <p>Bugün bahçede ne yapmak istersin?</p>
+            <button id="start-cognitive-btn" class="btn"><i class="fa-solid fa-brain"></i> Bilişsel Egzersizler</button>
+            <button id="start-motor-btn" class="btn"><i class="fa-solid fa-hand-paper"></i> Motor Beceriler</button>
+            <button id="show-progress-btn" class="btn btn-secondary"><i class="fa-solid fa-chart-line"></i> Gelişimim</button>
+            <button id="show-awards-btn" class="btn btn-secondary"><i class="fa-solid fa-trophy"></i> Başarımlarım</button>
+        </div>
+    </div>
+
+    <!-- BİLİŞSEL EGZERSİZLER MENÜSÜ -->
+    <div id="cognitive-menu-screen" class="screen" data-parent="main-menu-screen">
+        <button class="btn-back" data-parent="main-menu-screen"><i class="fa-solid fa-arrow-left"></i></button>
+        <div class="menu-container">
+            <h2>Bilişsel Egzersizler</h2>
+            <button class="btn" data-target-screen="memory-game-screen"><i class="fa-solid fa-sd-card"></i> Bellek Oyunu</button>
+            <button class="btn" data-target-screen="attention-game-screen"><i class="fa-solid fa-eye"></i> Dikkat Görevi</button>
+            <button class="btn" data-target-screen="orientation-game-screen"><i class="fa-solid fa-compass"></i> Yönelim Çalışması</button>
+        </div>
+    </div>
+
+    <!-- MOTOR BECERİLER MENÜSÜ -->
+    <div id="motor-menu-screen" class="screen" data-parent="main-menu-screen">
+        <button class="btn-back" data-parent="main-menu-screen"><i class="fa-solid fa-arrow-left"></i></button>
+         <div class="menu-container">
+            <h2>Motor Beceriler</h2>
+            <button class="btn" data-target-screen="shape-drawing-screen"><i class="fa-solid fa-pencil-alt"></i> Şekil Çizme</button>
+            <button class="btn" data-target-screen="coordination-game-screen"><i class="fa-solid fa-bullseye"></i> El-Göz Koordinasyonu</button>
+        </div>
+    </div>
+
+    <!-- Bellek Oyunu (GÜNCELLENDİ) -->
+    <div id="memory-game-screen" class="screen game-screen" data-parent="cognitive-menu-screen">
+        <button class="btn-back" data-parent="cognitive-menu-screen"><i class="fa-solid fa-arrow-left"></i></button>
+
+        <header class="game-header">
+            <div class="game-title">Bellek Oyunu</div>
+        </header>
+
+        <main class="game-area">
+            <!-- 1. Aşama: Nesnelerin gösterileceği alan -->
+            <div id="sequence-display" class="sequence-display-container">
+                <!-- JS buraya sırayla ikonları ekleyecek -->
+            </div>
+
+            <!-- 2. Aşama: Sürükle ve bırak alanı (başlangıçta gizli) -->
+            <div id="drag-and-drop-area" class="drag-drop-container hidden">
+                <div class="instruction-text">Gördüklerini sırayla yerleştir.</div>
+                <div id="draggable-items-source" class="item-source">
+                    <!-- Sürüklenilebilir nesneler -->
+                    <div class="draggable-item" id="item-apple" draggable="true"><i class="fa-solid fa-apple-whole"></i></div>
+                    <div class="draggable-item" id="item-banana" draggable="true"><i class="fa-solid fa-lemon"></i></div>
+                    <div class="draggable-item" id="item-monkey" draggable="true"><i class="fa-solid fa-hippo"></i></div>
+                </div>
+                <div class="drop-boxes">
+                    <!-- Bırakılacak kutular -->
+                    <div class="drop-box"></div>
+                    <div class="drop-box"></div>
+                    <div class="drop-box"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Dikkat Görevi -->
+    <div id="attention-game-screen" class="screen game-screen" data-parent="cognitive-menu-screen">
+        <button class="btn-back" data-parent="cognitive-menu-screen"><i class="fa-solid fa-arrow-left"></i></button>
+        <header class="game-header"><div class="game-title">Dikkat Görevi</div></header>
+        <main class="game-area"><div class="instruction-text">Dikkat Görevi Yükleniyor...</div></main>
+    </div>
+    
+    <!-- Yönelim Çalışması -->
+    <div id="orientation-game-screen" class="screen game-screen" data-parent="cognitive-menu-screen">
+        <button class="btn-back" data-parent="cognitive-menu-screen"><i class="fa-solid fa-arrow-left"></i></button>
+        <header class="game-header"><div class="game-title">Yönelim Çalışması</div></header>
+        <main class="game-area"><div class="instruction-text">Yönelim Çalışması Yükleniyor...</div></main>
+    </div>
+
+    <!-- Şekil Çizme -->
+    <div id="shape-drawing-screen" class="screen game-screen" data-parent="motor-menu-screen">
+        <button class="btn-back" data-parent="motor-menu-screen"><i class="fa-solid fa-arrow-left"></i></button>
+        <header class="game-header"><div class="game-title">Şekil Çizme</div></header>
+        <main class="game-area"><div class="instruction-text">Şekil Çizme Oyunu Yükleniyor...</div></main>
+    </div>
+
+    <!-- GELİŞİM EKRANI -->
+    <div id="progress-screen" class="screen" data-parent="main-menu-screen">
+        <button class="btn-back" data-parent="main-menu-screen"><i class="fa-solid fa-arrow-left"></i></button>
+        <div class="menu-container"><h2>Gelişimim</h2><p>İlerlemeni gösteren bahçen...</p><div class="chart-placeholder"><i class="fa-solid fa-tree"></i><span>Bellek Ağacı Büyüyor!</span></div></div>
+    </div>
+    
+    <!-- BAŞARIMLAR EKRANI -->
+     <div id="awards-screen" class="screen" data-parent="main-menu-screen">
+        <button class="btn-back" data-parent="main-menu-screen"><i class="fa-solid fa-arrow-left"></i></button>
+        <div class="menu-container"><h2>Başarımlarım</h2><p>Kazandığın güzel rozetler!</p></div>
+    </div>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
